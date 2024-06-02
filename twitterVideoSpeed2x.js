@@ -7,8 +7,8 @@
 // @author       Fahim Ahmed
 // @match        https://twitter.com/*
 // @match        https://x.com/*
-// @downloadURL  
-// @updateURL    
+// @downloadURL  https://raw.githubusercontent.com/fahim-ahmed05/violentmonkey-userscripts/main/twitterVideoSpeed2x.js
+// @updateURL    https://raw.githubusercontent.com/fahim-ahmed05/violentmonkey-userscripts/main/twitterVideoSpeed2x.js
 // @grant        none
 // ==/UserScript==
 
