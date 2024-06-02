@@ -6,8 +6,8 @@
 // @description  Automatically sets Rumble video speed to 2x
 // @author       Fahim Ahmed
 // @match        https://rumble.com/*
-// @downloadURL  https://raw.githubusercontent.com/fahim-ahmed05/violentmonkey-userscripts/main/rumbleVideoSpeed2x.user.js
-// @updateURL    https://raw.githubusercontent.com/fahim-ahmed05/violentmonkey-userscripts/main/rumbleVideoSpeed2x.user.js
+// @downloadURL  https://github.com/fahim-ahmed05/violentmonkey-userscripts/raw/main/rumbleVideoSpeed2x.user.js
+// @updateURL    https://github.com/fahim-ahmed05/violentmonkey-userscripts/raw/main/rumbleVideoSpeed2x.user.js
 // @grant        none
 // ==/UserScript==
 
