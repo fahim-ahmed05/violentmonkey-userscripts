@@ -6,8 +6,8 @@
 // @description  Automatically sets TikTok video speed to 2x
 // @author       Fahim Ahmed
 // @match        *://*.tiktok.com/*
-// @downloadURL  https://raw.githubusercontent.com/fahim-ahmed05/violentmonkey-userscripts/main/tiktokVideoSpeed2x.js
-// @updateURL    https://raw.githubusercontent.com/fahim-ahmed05/violentmonkey-userscripts/main/tiktokVideoSpeed2x.js
+// @downloadURL  https://raw.githubusercontent.com/fahim-ahmed05/violentmonkey-userscripts/main/tiktokVideoSpeed2x.user.js
+// @updateURL    https://raw.githubusercontent.com/fahim-ahmed05/violentmonkey-userscripts/main/tiktokVideoSpeed2x.user.js
 // @grant        none
 // ==/UserScript==
 
