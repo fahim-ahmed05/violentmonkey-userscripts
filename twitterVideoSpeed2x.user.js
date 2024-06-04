@@ -2,7 +2,7 @@
 // @name         Twitter/X Video Speed 2x
 // @namespace    Violentmonkey Scripts
 // @homepage     https://github.com/fahim-ahmed05/violentmonkey-userscripts
-// @version      1.2
+// @version      1.3
 // @description  Automatically sets Twitter/X video speed to 2x
 // @author       Fahim Ahmed
 // @match        https://twitter.com/*
@@ -15,20 +15,19 @@
 (function() {
     'use strict';
 
-    function isLive(video) {
-        // Example condition to check if a video is live
-        // This might need adjustment based on how live videos are identified on Twitter/X
-        // Often, live videos have a "live" indicator or specific attributes/classes
-        return video.closest('.live-indicator-class') !== null || video.currentSrc.includes('live');
+    function isLive() {
+        // Check if the current URL indicates a live broadcast
+        return window.location.href.includes('/i/broadcasts/');
     }
 
     function setVideoSpeed() {
-        const videos = document.querySelectorAll('video');
-        videos.forEach(video => {
-            if (!isLive(video)) {
+        // Only set the video speed if it's not a live video
+        if (!isLive()) {
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
                 video.playbackRate = 2;
-            }
-        });
+            });
+        }
     }
 
     // Set video speed when the page loads
