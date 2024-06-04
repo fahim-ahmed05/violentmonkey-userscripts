@@ -2,7 +2,7 @@
 // @name         Twitter/X Video Speed 2x
 // @namespace    Violentmonkey Scripts
 // @homepage     https://github.com/fahim-ahmed05/violentmonkey-userscripts
-// @version      1.3
+// @version      1.5
 // @description  Automatically sets Twitter/X video speed to 2x
 // @author       Fahim Ahmed
 // @match        https://twitter.com/*
@@ -20,23 +20,37 @@
         return window.location.href.includes('/i/broadcasts/');
     }
 
-    function setVideoSpeed() {
-        // Only set the video speed if it's not a live video
+    function isGif(video) {
+        // Check if the video is a GIF by looking for specific indicators
+        // Twitter GIFs are typically labeled as such in their data attributes or classes
+        return video.closest('.PlayableMedia--gif') !== null || video.closest('[data-testid="tweetPhoto"]') !== null;
+    }
+
+    function setMediaSpeed() {
+        // Only set the media speed if it's not a live video
         if (!isLive()) {
             const videos = document.querySelectorAll('video');
+            const audios = document.querySelectorAll('audio');
+
             videos.forEach(video => {
-                video.playbackRate = 2;
+                if (!isGif(video)) {
+                    video.playbackRate = 2;
+                }
+            });
+
+            audios.forEach(audio => {
+                audio.playbackRate = 2;
             });
         }
     }
 
-    // Set video speed when the page loads
-    window.addEventListener('load', setVideoSpeed);
+    // Set media speed when the page loads
+    window.addEventListener('load', setMediaSpeed);
 
-    // Set video speed when new videos are loaded (e.g., scrolling, AJAX content)
-    const observer = new MutationObserver(setVideoSpeed);
+    // Set media speed when new media are loaded (e.g., scrolling, AJAX content)
+    const observer = new MutationObserver(setMediaSpeed);
     observer.observe(document, { childList: true, subtree: true });
 
-    // Also set video speed if the user clicks on a video
-    document.addEventListener('click', setVideoSpeed, true);
+    // Also set media speed if the user clicks on a video or audio
+    document.addEventListener('click', setMediaSpeed, true);
 })();
